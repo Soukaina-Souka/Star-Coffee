@@ -1,23 +1,22 @@
 import logo from './logo.svg';
 import './App.css';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import CoffeeList from './composants/CoffeeList';
+import AddCoffee from './composants/AddCoffee';
+import UpdateCoffee from './composants/UpdateCoffee';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Star Coffee List</h1>
+    <BrowserRouter>
+    <Routes>
+      <Route path='/' element={<CoffeeList />} />
+      <Route path='/add-coffee' element={<AddCoffee />} />
+      <Route path='/update-coffee/:id' element={<UpdateCoffee />} />
+
+      </Routes>  
+      </BrowserRouter>
     </div>
   );
 }
